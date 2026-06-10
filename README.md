@@ -137,13 +137,15 @@ pip install -r requirements.txt
 streamlit run app.py
 ```
 
-Then open [http://localhost:8501](http://localhost:8501) in your browser.
+Then open [http://localhost:8501](https://rashi26ppe.streamlit.app) in your browser.
 
 ### Usage
 1. Upload a test video or check "Use Default Test Video"
 2. Click **Run Pipeline**
 3. Watch the live annotated feed with PPE bounding boxes and confidence scores
 4. Download the compliance CSV or alert frames ZIP after inference completes
+   
+> ⚠️ **Note:** Here used large YOLO models may exceed free-tier memory limits and may be Very Slow. 
 
 ---
 
@@ -157,18 +159,6 @@ python train.py
 ```
 
 This trains on the Construction-PPE dataset for 100 epochs with AutoBatch.
-
----
-
-## 📦 Deployment
-
-### Streamlit Community Cloud
-1. Push this repository to GitHub
-2. Go to [share.streamlit.io](https://share.streamlit.io)
-3. Connect your GitHub repo, set `app.py` as the main file
-4. Deploy!
-
-> ⚠️ **Note:** Large YOLO models may exceed free-tier memory limits. Consider using a lighter model (e.g., `yolo11n`) for cloud deployment, or pre-process demo videos locally.
 
 ---
 
@@ -190,8 +180,3 @@ This trains on the Construction-PPE dataset for 100 epochs with AutoBatch.
 This project uses the [Ultralytics AGPL-3.0 License](https://ultralytics.com/license) for YOLO components.
 
 ---
-
-## 🙏 Acknowledgements
-
-- [Ultralytics](https://ultralytics.com/) for YOLO11 and the Construction-PPE dataset
-- [Streamlit](https://streamlit.io/) for the dashboard framework
