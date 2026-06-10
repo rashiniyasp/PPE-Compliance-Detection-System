@@ -69,7 +69,7 @@ st.markdown("Monitor real-time compliance for helmets, vests, gloves, goggles, a
 # Sidebar
 st.sidebar.header("Controls")
 video_file = st.sidebar.file_uploader("Upload Test Video", type=['mp4', 'avi'])
-use_default = st.sidebar.checkbox("Use Default Test Video", value=True, help=r"R:\SYSTECH\Project\from_lab\PPE_systech_Test file.mp4")
+use_default = st.sidebar.checkbox("Use Default Test Video", value=True, help="from_lab/PPE_systech_Test file.mp4")
 run_inference = st.sidebar.button("Run Pipeline")
 
 if 'results_df' not in st.session_state:
@@ -116,7 +116,7 @@ with col_video:
                 tfile.write(video_file.read())
                 video_path = tfile.name
             elif use_default:
-                video_path = r"r:\SYSTECH\Project\from_lab\PPE_systech_Test file.mp4"
+                video_path = "from_lab/PPE_systech_Test file.mp4"
                 
             if video_path and os.path.exists(video_path):
                 cap = cv2.VideoCapture(video_path)

@@ -10,7 +10,7 @@ from config import Config
 from skeleton_features import SkeletonFeatureExtractor
 
 class PPEPipeline:
-    def __init__(self, detection_model_path=r'r:\SYSTECH\Project\from_lab\runs\detect\runs\train\ppe_detection\weights\best.pt', pose_model_path='yolo11x-pose.pt', conf=0.3, fps=30.0, frame_width=1920, frame_height=1080):
+    def __init__(self, detection_model_path='from_lab/runs/detect/runs/train/ppe_detection/weights/best.pt', pose_model_path='yolo11x-pose.pt', conf=0.3, fps=30.0, frame_width=1920, frame_height=1080):
         print("Loading PPE Detection Model...")
         self.det_model = YOLO(detection_model_path)
         print("Loading YOLO-Pose Model...")
