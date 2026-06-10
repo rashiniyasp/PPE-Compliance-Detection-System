@@ -22,7 +22,6 @@ Thumbs.db
 .DS_Store
 
 # Large model files (use Git LFS for these)
-*.pt
 
 # Large video files
 *.mp4
