@@ -137,7 +137,8 @@ pip install -r requirements.txt
 streamlit run app.py
 ```
 
-Then open [http://localhost:8501](https://rashi26ppe.streamlit.app) in your browser.
+Then open [Streamlit Dashboard](https://rashi26ppe.streamlit.app) in your browser.
+
 
 ### Usage
 1. Upload a test video or check "Use Default Test Video"
