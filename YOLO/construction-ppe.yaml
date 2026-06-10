@@ -1,0 +1,18 @@
+# Construction-PPE dataset by Ultralytics
+path: r:/SYSTECH/YOLO  # dataset root dir (extracted flat)
+train: images/train     # 1132 images
+val: images/val         # 143 images
+test: images/test       # 141 images
+
+names:
+  0: helmet
+  1: gloves
+  2: vest
+  3: boots
+  4: goggles
+  5: none
+  6: Person
+  7: no_helmet
+  8: no_goggle
+  9: no_gloves
+  10: no_boots

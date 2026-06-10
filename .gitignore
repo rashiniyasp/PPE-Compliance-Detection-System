@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+dist/
+build/
+
+# Virtual environments
+venv/
+.env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Large model files (use Git LFS for these)
+*.pt
+
+# Large video files
+*.mp4
+*.avi
+
+# Outputs (generated at runtime)
+outputs/
+
+# Temp files
+*.tmp
