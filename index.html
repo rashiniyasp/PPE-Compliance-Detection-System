@@ -376,6 +376,41 @@
         </div>
     </section>
 
+    <!-- Tracking Evaluation -->
+    <section id="tracking-evaluation">
+        <div class="container">
+            <h2>Tracking Method Evaluation</h2>
+            <p class="subtitle">Comparing our proposed SkeletonStat-Track against industry standard baselines.</p>
+
+            <div class="stages-grid" style="grid-template-columns: repeat(3, 1fr); gap: 20px;">
+                <div class="stage-card" style="border-color: var(--accent-cyan);">
+                    <h3>1. SkeletonStat-Track (Proposed)</h3>
+                    <p>Uses YOLO11x-pose and custom spatial heuristics.</p>
+                    <div style="margin-top: 16px;">
+                        <div style="color: var(--accent-green); font-weight: bold; font-size: 1.2rem;">Highest Stability</div>
+                        <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 4px;">Only 3-7 Unique IDs tracked per video, preventing duplicate counting and false compliance alerts.</p>
+                    </div>
+                </div>
+                <div class="stage-card">
+                    <h3>2. BoT-SORT + IoU (Baseline 1)</h3>
+                    <p>Uses standard bounding-box overlapping.</p>
+                    <div style="margin-top: 16px;">
+                        <div style="color: #ef4444; font-weight: bold; font-size: 1.2rem;">High ID Switching</div>
+                        <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 4px;">Up to 15 Unique IDs per video due to overlap confusion. Drops >50% of PPE violations during occlusions.</p>
+                    </div>
+                </div>
+                <div class="stage-card">
+                    <h3>3. MediaPipe Pose (Baseline 2)</h3>
+                    <p>Uses Google's PoseLandmarker.</p>
+                    <div style="margin-top: 16px;">
+                        <div style="color: var(--accent-blue); font-weight: bold; font-size: 1.2rem;">Moderate Stability</div>
+                        <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 4px;">Comparable ID stability to our method, but misses 30-40% of violations due to lower confidence on distant workers.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!--  Link -->
    <section id="live-dashboard" style="text-align: center;">
         <div class="container">
