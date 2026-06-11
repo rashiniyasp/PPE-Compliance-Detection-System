@@ -1,0 +1,95 @@
+Walkthrogh before submitting to GitHub.
+
+Final Walkthrough — PPE Compliance System
+All 5 pipeline stages are now complete and every requirement from the problem statement has been addressed.
+
+Changes Made
+1. 
+pipeline.py
+ — PPE Confidence Propagation
+Each person dict now carries a ppe_details list containing {class, conf, bbox} for every PPE item associated with them
+check_compliance() returns a conf_str (e.g., "helmet:0.92, vest:0.87") and full ppe_details for the UI to render
+2. 
+app.py
+ — Major Enhancement
+Annotation Improvements:
+
+Individual PPE bounding boxes are now drawn with distinct colors per class (orange=helmet, green=vest, magenta=gloves, blue=boots, yellow=goggles)
+Each PPE box shows class confidence (e.g., helmet 0.92) as a filled label
+Missing PPE is shown as red MISSING: boots, gloves label inside the person bounding box
+Person ID label has a filled background for readability
+Alert Frame Export (NEW):
+
+During inference, every frame with a violation is saved as a .jpg with full annotations
+All alert frames are bundled into a downloadable .zip file
+A "📦 Download Alert Frames (ZIP)" button appears next to the CSV download
+Compliance Table Enhancement:
+
+Added Confidence column showing per-PPE detection confidence scores
+3. 
+requirements.txt
+ — NEW
+Contains all dependencies for Streamlit Cloud deployment
+Uses opencv-python-headless (not opencv-python) to avoid Linux GUI errors
+4. 
+index.html
+ — NEW
+Modern dark-themed portfolio landing page
+Showcases the 5-stage pipeline architecture
+Displays per-class metrics table
+Links to the live Streamlit deployment (update link after deploying)
+Complete File Map
+
+r:\SYSTECH\Project\
+├── app.py                          ← Streamlit Dashboard (Stage 5)
+├── pipeline.py                     ← Core Pipeline (Stages 1-4)
+├── requirements.txt                ← Deployment dependencies
+├── index.html                      ← Portfolio landing page
+├── yolo11x-pose.pt                 ← Pose model (auto-downloaded)
+│
+├── YOLO/                           ← Detection training code
+│   ├── train.py                    ← Lab GPU training script
+│   ├── infer.py                    ← Standalone inference script
+│   └── data.yaml                   ← Dataset config (11 classes)
+│
+├── Tracking people/                ← Stage 3 tracker
+│   ├── tracker.py                  ← SkeletonTracker + Track classes
+│   ├── skeleton_features.py        ← Feature extractor (bone ratios, angles)
+│   ├── config.py                   ← Hyperparameters
+│   ├── main.py                     ← Standalone tracking runner
+│   └── outputs/                    ← Re-generated tracking videos + CSVs
+│
+├── from_lab/                       ← Lab GPU outputs (DATA ONLY)
+│   ├── runs/.../weights/best.pt    ← Trained YOLO11x detection model
+│   ├── runs/detect/val/            ← Validation curves & confusion matrices
+│   └── PPE_systech_Test file.mp4   ← Test video (~100 MB)
+│
+└── outputs/                        ← Pipeline outputs
+    └── annotated_video_*.mp4       ← Annotated output videos
+Verification Steps
+Run streamlit run app.py from r:\SYSTECH\Project\
+Click Run Pipeline → verify:
+PPE bounding boxes appear with class names + confidence scores
+Missing PPE shown as red MISSING: labels inside person boxes
+Compliance table now includes a Confidence column
+After inference:
+Click 📥 Download Compliance Logs (CSV) → verify CSV has confidence column
+Click 📦 Download Alert Frames (ZIP) → verify ZIP contains annotated JPGs
+Check outputs/ folder for the saved video
+Open index.html in a browser → verify the portfolio page renders correctly
+Deployment (Your Manual Steps)
+GitHub + Streamlit Cloud
+bash
+
+cd r:\SYSTECH\Project
+git init
+git lfs install
+git lfs track "*.pt"
+git add .
+git commit -m "PPE Compliance Detection System - Complete"
+git remote add origin https://github.com/YOUR_USERNAME/ppe-compliance.git
+git push -u origin main
+Then go to share.streamlit.io, connect your repo, set app.py as the main file, and deploy.
+
+HTML Portfolio (Optional)
+Host index.html on GitHub Pages or Netlify. Update the demo link inside to point to your Streamlit Cloud URL.
